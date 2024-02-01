@@ -1,0 +1,57 @@
+# 开发环境配置
+server:
+  # 服务器的HTTP端口，默认为8080
+  port: 8080
+  servlet:
+    # 应用的访问路径
+    context-path: /
+
+# Spring配置
+spring:
+  application:
+    name: coze-discord
+
+# discord
+discord:
+  # 发送消息的Bot-Token
+  botToken: xxxxxxxxx
+  # 两个机器人所在的服务器ID
+  guildId: 1xxxxxxxxxx3
+  # 由coze托管的机器人ID
+  cozeBotId: 1xxxxxxxxx2
+  # 默认频道
+  channelId: 1xxxxxxxxxxxx0
+
+
+# 日志配置
+logging:
+  level:
+    com.oddfar: info
+    org.springframework: warn
+
+springdoc:
+  api-docs:
+    # 是否开启接口文档
+    enabled: true
+  #  swagger-ui:
+  #    # 持久化认证数据
+  #    persistAuthorization: true
+  info:
+    # 标题
+    title: 'coze-discord'
+    # 描述
+    description: 'discord-bot代理coze-bot，实现完全免费api接入GPT4'
+    # 版本
+    version: '版本号: 1.0.1'
+    # 作者信息
+    contact:
+      name: oddfar
+      email: oddfar@163.com
+      url: https://github.com/oddfar
+  components:
+    # 鉴权方式配置
+    security-schemes:
+      apiKey:
+        type: APIKEY
+        in: HEADER
+        name: Authorization
