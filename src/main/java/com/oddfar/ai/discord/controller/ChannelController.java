@@ -9,10 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import net.dv8tion.jda.api.entities.channel.concrete.ThreadChannel;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * 创建频道
@@ -36,6 +33,7 @@ public class ChannelController {
      * @return R<ChannelResp>
      * @throws InterruptedException
      */
+    @CrossOrigin
     @PostMapping("/createChannel")
     public R<ChannelResp> createChannel(@RequestBody ChannelReq channelReq) throws InterruptedException {
 
@@ -56,6 +54,7 @@ public class ChannelController {
      * @return R<ChannelResp>
      * @throws InterruptedException
      */
+    @CrossOrigin
     @PostMapping("/createThreadChannel")
     public R<ChannelResp> createThreadChannel(@RequestBody ChannelReq channelReq) {
         ThreadChannel channel = channelService.createThreadChannel(channelReq.getName(), channelReq.getParentId());
