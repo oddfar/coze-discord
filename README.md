@@ -54,3 +54,16 @@ Discord SDK JDA: <https://jda.wiki/>
 ![image-20240201225419850](https://gcore.jsdelivr.net/gh/oddfar/static/discord/01.介绍.assets/image-20240201225419850.png)
 
 ![image-20240202153712692](https://gcore.jsdelivr.net/gh/oddfar/static/discord/01.介绍.assets/image-20240202153712692.png)
+
+## 鸣谢
+
+感谢以下项目的开源的付出，站在巨人的肩膀：
+
+- coze-discord-proxy
+
+  GO版本：https://github.com/deanxv/coze-discord-proxy/
+
+- Coze-Discord-Bridge
+
+  Java版本：https://github.com/catx-feitu/Coze-Discord-Bridge
+
