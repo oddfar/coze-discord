@@ -2,9 +2,9 @@ name: coze-discord
 on:
   # 手动构建
   workflow_dispatch: 
-#  push:
-#    branches: [ "master","dev" ]
-#    tags: [ 'v*','V*' ]
+  push:
+    branches: [ "master","dev" ]
+    tags: [ 'v*','V*' ]
 
 env:
   REGISTRY: ghcr.io

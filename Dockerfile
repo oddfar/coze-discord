@@ -15,10 +15,10 @@ ADD ./target/*.jar ./app.jar
 
 
 ENTRYPOINT java -Djava.security.egd=file:/dev/./urandom -Dserver.port=${SERVER_PORT} \
-           -Ddiscord.botToken=${DDISCORD_BOT_TOKEN}\
-           -Ddiscord.guildId=${DDISCORD_GUILD_ID}\
-           -Ddiscord.cozeBotId=${DDISCORD_COZE_BOT_ID}\
-           -Ddiscord.channelId=${DDISCORD_CHANNEL_ID}\
+           -Ddiscord.botToken=${DISCORD_BOT_TOKEN}\
+           -Ddiscord.guildId=${DISCORD_GUILD_ID}\
+           -Ddiscord.cozeBotId=${DISCORD_COZE_BOT_ID}\
+           -Ddiscord.channelId=${DISCORD_CHANNEL_ID}\
            -jar app.jar \
            -XX:+HeapDumpOnOutOfMemoryError -Xlog:gc*,:time,tags,level -XX:+UseZGC ${JAVA_OPTS}
 
