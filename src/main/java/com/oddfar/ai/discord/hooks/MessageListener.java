@@ -72,13 +72,14 @@ public class MessageListener extends ListenerAdapter {
         //引用的消息
         Message referencedMessage = message.getReferencedMessage();
         boolean stream = MessageFuturesManager.streamMessageList.contains(referencedMessage.getIdLong());
-        if (stream) {
+        //是否存在按钮 = 100%响应完毕，只返回一次
+        boolean component = message.getComponents().isEmpty();
+        if (stream && component) {
             //如果是流式返回，每次都返回
             log.info("收到update消息,流式返回：{}", message.getContentRaw());
             setFutures(referencedMessage, message, false);
         }
-        //是否存在按钮 = 100%响应完毕，只返回一次
-        boolean component = message.getComponents().isEmpty();
+
         //存在按钮 = 100%响应完毕（一般来说是这样的）
         if (!component && referencedMessage != null) {
             log.info("收到update结果消息：{}", message.getContentRaw());
