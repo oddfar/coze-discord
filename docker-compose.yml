@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+
+  coze-discord:
+    image: oddfar/coze-discord:1.0.1
+    container_name: coze-discord
+    environment:
+      # 时区上海
+      TZ: Asia/Shanghai
+      # 端口
+      SERVER_PORT: 8080
+      # 发送消息的Bot-Token
+      DDISCORD_BOT_TOKEN: xxxxxxxxx
+      # 两个机器人所在的服务器ID
+      DDISCORD_GUILD_ID: 1xxxxxxxxxx3
+      # 由coze托管的机器人ID
+      DDISCORD_COZE_BOT_ID: 1xxxxxxxxx2
+      # 默认频道
+      DDISCORD_CHANNEL_ID: 1xxxxxxxxxxxx0
+
+    privileged: true
+    network_mode: "host"

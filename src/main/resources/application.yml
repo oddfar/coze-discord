@@ -40,7 +40,7 @@ springdoc:
     # 标题
     title: 'coze-discord'
     # 描述
-    description: 'discord-bot代理coze-bot，实现完全免费api接入GPT4'
+    description: '使用两个Discord机器人代理Coze服务，免费使用GPT-4高级模型的API功能'
     # 版本
     version: '版本号: 1.0.1'
     # 作者信息
@@ -49,7 +49,7 @@ springdoc:
       email: oddfar@163.com
       url: https://github.com/oddfar
   components:
-    # 鉴权方式配置
+    # 鉴权方式配置(后续添加)
     security-schemes:
       apiKey:
         type: APIKEY
