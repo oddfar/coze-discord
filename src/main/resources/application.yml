@@ -21,6 +21,12 @@ discord:
   cozeBotId: 1xxxxxxxxx2
   # 默认频道
   channelId: 1xxxxxxxxxxxx0
+  ## 代理
+  proxy:
+    # 是否开启代理
+    enabled: false
+    host: 127.0.0.1
+    port: 7890
 
 
 # 日志配置
