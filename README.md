@@ -1,8 +1,4 @@
----
-title: 介绍
-date: 2024-02-01 22:52:01
-permalink: /coze-discord
----
+
 <p align="center"><a href="https://oddfar.com/" target="_blank" rel="noopener noreferrer"><img width="180" src="https://note.oddfar.com/img/web.png" alt="logo"></a></p>
 
 <p align="center">
@@ -11,14 +7,15 @@ permalink: /coze-discord
 </p>
 
 
-
-<p align="center">使用两个Discord机器人调用Coze服务，免费使用GPT-4高级模型API。</p>
+<p align="center">使用两个Discord机器人代理Coze服务，免费使用GPT-4高级模型的API功能</p>
 
 <h2 align="center">coze-discord</h2>
 
 ## 介绍
 
 功能如下：
+
+- [x] 支持 api 方式调用
 
 - [x] 对话支持流式返回
 - [x] 支持对话指定 `Discord` 频道、子频道，实现对话隔离支
@@ -39,12 +36,20 @@ permalink: /coze-discord
 
 部署教程：<https://oddfar.github.io/campus-doc/pages/60eaa2/>
 
+> 平台
+
+Coze: <https://www.coze.com/>
+
+Discord Api: <https://discord.com/developers/docs/intro>
+
+Discord SDK JDA: <https://jda.wiki/>
+
 
 
 ## 演示图
 
 ![image-20240201225345802](https://gcore.jsdelivr.net/gh/oddfar/static/discord/01.介绍.assets/image-20240201225345802.png)
 
-
-
 ![image-20240201225419850](https://gcore.jsdelivr.net/gh/oddfar/static/discord/01.介绍.assets/image-20240201225419850.png)
+
+![image-20240202153712692](https://gcore.jsdelivr.net/gh/oddfar/static/discord/01.介绍.assets/image-20240202153712692.png)
