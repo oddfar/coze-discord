@@ -6,6 +6,7 @@ import com.oddfar.ai.discord.domain.R;
 import com.oddfar.ai.discord.domain.req.ChatReq;
 import com.oddfar.ai.discord.domain.resp.ChatResp;
 import com.oddfar.ai.discord.manage.MessageFuturesManager;
+import com.oddfar.ai.discord.service.ChatService;
 import lombok.extern.slf4j.Slf4j;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.Message;
@@ -33,6 +34,9 @@ import java.util.concurrent.atomic.AtomicBoolean;
 @RequestMapping("/api/chat")
 public class ChatController {
     @Autowired
+    private ChatService chatService;
+
+    @Autowired
     private JDA jda;
 
     @Autowired
@@ -47,30 +51,11 @@ public class ChatController {
     @CrossOrigin
     @PostMapping
     public R<ChatResp> sendChat(@Validated @RequestBody ChatReq chatReq) {
-        // step1：获取一个频道
         if (StringUtils.isBlank(chatReq.getChannelId())) {
             chatReq.setChannelId(discordProperties.getChannelId());
         }
-        TextChannel textChannel = jda.getTextChannelById(chatReq.getChannelId());
-        // 是否可以在此通道中发送消息
-        if (textChannel.canTalk()) {
-            // step2：发送消息并获取结果
-            //拼接信息
-            String msg = String.format("<@%s> %s", discordProperties.getCozeBotId(), chatReq.getContent());
-            Message sendMessage = textChannel.sendMessage(msg).complete();
-            long messageId = sendMessage.getIdLong();
-            log.info("发送成功，消息Id：{}", messageId);
-            // step3：等待响应的信息
-            CompletableFuture<ChatResp> future = new CompletableFuture<>();
-            //添加
-            MessageFuturesManager.putFutures(messageId, future);
-            //等待响应并获取结果
-            ChatResp resp = MessageFuturesManager.awaitResponse(messageId);
-            // step4：移除缓存信息
-            MessageFuturesManager.messageFutures.remove(messageId);
-            return R.ok(resp);
-        }
-        return R.fail("处理消息时出错");
+        ChatResp resp = chatService.sendChat(chatReq.getChannelId(), chatReq.getContent());
+        return R.ok(resp);
     }
 
     /**
