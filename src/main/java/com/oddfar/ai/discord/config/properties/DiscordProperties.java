@@ -21,14 +21,6 @@ public class DiscordProperties {
     // 默认频道
     private String channelId;
 
-    private Proxy proxy;
-
-    @Data
-    public static class Proxy {
-        private Boolean enabled;
-//        private String type;
-        private String host;
-        private int port;
-    }
+    private String proxyHostPort;
 
 }

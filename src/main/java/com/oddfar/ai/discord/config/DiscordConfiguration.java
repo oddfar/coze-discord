@@ -6,6 +6,7 @@ import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 import okhttp3.OkHttpClient;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -42,11 +43,14 @@ public class DiscordConfiguration {
 
         builder.addEventListeners(new MessageListener());
         builder.enableIntents(GatewayIntent.MESSAGE_CONTENT);
-        DiscordProperties.Proxy proxyConfig = discordProperties.getProxy();
         //设置代理
-        if (proxyConfig.getEnabled()) {
-            Proxy proxy = new Proxy(Proxy.Type.HTTP,
-                    InetSocketAddress.createUnresolved(proxyConfig.getHost(), proxyConfig.getPort()));
+        if (StringUtils.isNotBlank(discordProperties.getProxyHostPort())) {
+            String[] hostPort = discordProperties.getProxyHostPort().split(":");
+            if (hostPort == null || hostPort.length != 2) {
+                throw new IllegalArgumentException("Please check if the 'discord.proxyHostPort' configuration is correct");
+            }
+            Proxy proxy = new Proxy(Proxy.Type.SOCKS,
+                    InetSocketAddress.createUnresolved(hostPort[0], Integer.parseInt(hostPort[1])));
             builder.setHttpClientBuilder(new OkHttpClient.Builder().proxy(proxy));
         }
 
