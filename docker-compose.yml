@@ -5,6 +5,7 @@ services:
   coze-discord:
     image: oddfar/coze-discord:1.0.1
     container_name: coze-discord
+    restart: always
     environment:
       # 时区上海
       TZ: Asia/Shanghai
@@ -18,6 +19,8 @@ services:
       DISCORD_COZE_BOT_ID: 1xxxxxxxxx2
       # 默认频道
       DISCORD_CHANNEL_ID: 1xxxxxxxxxxxx0
+      # 代理:host+port，例如127.0.0.1:7890，为空则不开启
+#      DISCORD_PROXY_HOST_PORT: 127.0.0.1:7890
 
     privileged: true
     network_mode: "host"

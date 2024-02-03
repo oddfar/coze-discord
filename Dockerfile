@@ -19,6 +19,7 @@ ENTRYPOINT java -Djava.security.egd=file:/dev/./urandom -Dserver.port=${SERVER_P
            -Ddiscord.guildId=${DISCORD_GUILD_ID}\
            -Ddiscord.cozeBotId=${DISCORD_COZE_BOT_ID}\
            -Ddiscord.channelId=${DISCORD_CHANNEL_ID}\
+           -Ddiscord.proxyHostPort=${DISCORD_PROXY_HOST_PORT}\
            -jar app.jar \
            -XX:+HeapDumpOnOutOfMemoryError -Xlog:gc*,:time,tags,level -XX:+UseZGC ${JAVA_OPTS}
 
