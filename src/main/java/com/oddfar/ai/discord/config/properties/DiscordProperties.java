@@ -21,4 +21,6 @@ public class DiscordProperties {
     // 默认频道
     private String channelId;
 
+    private String proxyHostPort;
+
 }
