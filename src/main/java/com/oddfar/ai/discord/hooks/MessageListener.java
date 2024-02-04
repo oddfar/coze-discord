@@ -7,7 +7,6 @@ import com.oddfar.ai.discord.manage.MessageFuturesManager;
 import lombok.extern.slf4j.Slf4j;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.MessageType;
-import net.dv8tion.jda.api.entities.channel.middleman.MessageChannel;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.events.message.MessageUpdateEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
@@ -26,8 +25,7 @@ import java.util.concurrent.CompletableFuture;
 public class MessageListener extends ListenerAdapter {
 
     /**
-     * 收到消息的回调
-     * 一个案例，发送“!ping”，回复“Pong!”
+     * 收到消息时的回调
      */
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
@@ -46,11 +44,6 @@ public class MessageListener extends ListenerAdapter {
         String content = message.getContentRaw();
         log.info("收到消息：{}", content);
         log.info("收到消息的引用消息Id：{}", referencedMessage.getId());
-
-        if (content.equals("!ping")) {
-            MessageChannel channel = event.getChannel();
-            channel.sendMessage("Pong!").queue();
-        }
     }
 
     /**
