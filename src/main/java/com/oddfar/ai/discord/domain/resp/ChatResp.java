@@ -7,6 +7,7 @@ import net.dv8tion.jda.api.entities.Message;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Chat请求响应
@@ -29,6 +30,8 @@ public class ChatResp implements Serializable {
     private String content;
     //响应完成
     private Boolean done;
+    //嵌套消息的图片urls
+    private List<String> embedImageUrls;
 
     private User author;
 
