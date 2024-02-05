@@ -58,7 +58,7 @@ public class MessageFuturesManager {
         }
         CompletableFuture<ChatResp> future = messageFutures.get(messageId);
         try {
-            ChatResp chatResp = future.get(10, TimeUnit.SECONDS);  // 设置超时时间为10秒
+            ChatResp chatResp = future.get(60, TimeUnit.SECONDS);  // 设置超时时间为60秒
             //消费完了若还没执行完，则创建一个新的
             messageFutures.remove(messageId);
             if (!chatResp.getDone()) {
