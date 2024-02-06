@@ -21,10 +21,10 @@
 - [x] 对话支持流式返回
 - [x] 支持对话指定 `Discord` 频道、子频道，实现对话隔离支
 - [x] 支持创建 `Discord` 频道、子频道、线程
+- [x] 对话支持文生图
 
 未来计划：
 
-- [ ] 对话支持文生图
 - [ ] 对话支持图生文
 - [ ] 支持和 `openai` 的对话接口、GPT4V识图接口...
 - [ ] 支持配置多个机器人
@@ -57,13 +57,9 @@ Discord SDK JDA: <https://jda.wiki/>
 
 ## 鸣谢
 
-感谢以下项目的开源的付出，站在巨人的肩膀：
+感谢以下项目的开源的付出：
 
 - coze-discord-proxy
 
   GO版本：https://github.com/deanxv/coze-discord-proxy/
-
-- Coze-Discord-Bridge
-
-  Java版本：https://github.com/catx-feitu/Coze-Discord-Bridge
 
